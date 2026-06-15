@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sherlock — Live Interview Monitor</title>
+  <meta name="description" content="Real-time candidate identification and interview fraud detection dashboard.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <h1 class="logo">🔍 Sherlock</h1>
+        <span class="header-subtitle">Live Interview Monitor</span>
+      </div>
+      <div class="header-right">
+        <div class="connection-status" id="connectionStatus">
+          <span class="conn-dot"></span>
+          <span class="conn-text">Disconnected</span>
+        </div>
+        <div class="timer" id="meetingTimer">00:00</div>
+      </div>
+    </header>
+
+    <!-- Setup Panel (shown when no active interview) -->
+    <div class="setup-panel" id="setupPanel">
+      <div class="setup-card">
+        <h2>Start Monitoring</h2>
+        <p class="setup-desc">Connect to a live interview session or enter an Interview ID to monitor.</p>
+        <div class="setup-form">
+          <div class="field-group">
+            <label for="setupInterviewId">Interview ID</label>
+            <input type="text" id="setupInterviewId" placeholder="Paste from extension popup or leave blank">
+          </div>
+          <div class="field-group">
+            <label for="setupServerUrl">Backend URL</label>
+            <input type="text" id="setupServerUrl" value="ws://localhost:8000/ws/dashboard/">
+          </div>
+          <button class="btn-connect" id="btnStartMonitor">Connect to Session</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Monitor View (shown during active monitoring) -->
+    <main class="monitor-view hidden" id="monitorView">
+      <!-- Interview Info Bar -->
+      <div class="info-bar">
+        <div class="info-item">
+          <span class="info-label">Interview</span>
+          <span class="info-value" id="infoInterviewId">—</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Expected Candidate</span>
+          <span class="info-value highlight" id="infoExpectedName">—</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Participants</span>
+          <span class="info-value" id="infoParticipantCount">0</span>
+        </div>
+      </div>
+
+      <div class="monitor-grid">
+        <!-- Left Column: Participants -->
+        <section class="panel participants-panel">
+          <h2 class="panel-title">Participants</h2>
+          <div class="participant-list" id="participantList">
+            <div class="empty-state">Waiting for participants to join...</div>
+          </div>
+        </section>
+
+        <!-- Right Column: Charts + Log -->
+        <div class="right-column">
+          <!-- Score Timeline -->
+          <section class="panel timeline-panel">
+            <h2 class="panel-title">Confidence Timeline</h2>
+            <div class="chart-container">
+              <canvas id="scoreChart"></canvas>
+            </div>
+          </section>
+
+          <!-- Explainability Log -->
+          <section class="panel log-panel">
+            <h2 class="panel-title">Analysis Log</h2>
+            <div class="log-entries" id="logEntries">
+              <div class="empty-state">Score changes will appear here...</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
