@@ -1,0 +1,26 @@
+{
+  "platform": "GOOGLE_MEET",
+  "version": "2026-07-10",
+  "notes": "These selectors must be verified against the live Google Meet DOM. Update this file when Google ships UI changes.",
+  "selectors": {
+    "meeting_active_indicator": "[data-meeting-title], [data-call-id]",
+    "participant_tile_container": "[data-participant-id]",
+    "participant_name_attr": "data-participant-id",
+    "participant_display_name": "[data-self-name], [data-participant-id] [data-tooltip]",
+    "video_grid_container": "[data-allocation-index]",
+    "active_speaker_class_pattern": "VfPpkd",
+    "active_speaker_border_container": "[data-requested-participant-id]",
+    "caption_container": ".iOzk7, .a4cQT",
+    "caption_speaker_name": ".zs7s8d.jxFHg, .KcIKyf",
+    "caption_text_content": ".iTTPOb.VbkSUe span, .bh44bd",
+    "camera_off_indicator": "[data-is-camera-off='true']",
+    "mute_indicator": "[data-is-muted='true']",
+    "self_video_tile": "[data-self-name]",
+    "participant_count_button": "[data-participant-count]"
+  },
+  "fallback_strategies": {
+    "participant_name_from_tooltip": "Try aria-label or title attributes on the tile container",
+    "active_speaker_from_volume": "Check for animated volume indicator SVGs if class-based detection fails",
+    "captions_from_aria_live": "Look for aria-live='polite' regions as caption fallback"
+  }
+}
