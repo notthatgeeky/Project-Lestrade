@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320">
+  <title>Sherlock Monitor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>🔍 Sherlock</h1>
+      <span class="version">v0.1.0</span>
+    </header>
+
+    <div class="status-bar" id="statusBar">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Disconnected</span>
+    </div>
+
+    <div class="form-section" id="configSection">
+      <div class="field">
+        <label for="serverUrl">Server URL</label>
+        <input type="text" id="serverUrl" value="ws://localhost:8000/ws/ingest"
+               placeholder="ws://localhost:8000/ws/ingest">
+      </div>
+
+      <div class="field">
+        <label for="interviewId">Interview ID</label>
+        <input type="text" id="interviewId" placeholder="Auto-generated if empty">
+      </div>
+
+      <div class="field">
+        <label for="candidateName">Expected Candidate Name</label>
+        <input type="text" id="candidateName" placeholder="e.g., Aarav Sharma">
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btnConnect">Start Monitoring</button>
+      <button class="btn btn-danger hidden" id="btnDisconnect">Stop Monitoring</button>
+    </div>
+
+    <div class="stats hidden" id="statsSection">
+      <div class="stat">
+        <span class="stat-label">Events Sent</span>
+        <span class="stat-value" id="eventCount">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Buffered</span>
+        <span class="stat-value" id="bufferSize">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Interview</span>
+        <span class="stat-value stat-id" id="activeInterview">—</span>
+      </div>
+    </div>
+
+    <footer class="popup-footer">
+      <a href="#" id="openDashboard">Open Dashboard ↗</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
