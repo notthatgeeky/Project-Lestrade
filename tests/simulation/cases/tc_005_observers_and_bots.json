@@ -1,0 +1,84 @@
+{
+  "test_case_id": "tc_005_observers_and_bots",
+  "description": "Interview with a silent observer and an automated note-taker bot. Silent participants are pruned or score low.",
+  "expected_candidate_participant_idx": 1,
+  "interview_metadata": {
+    "expected_candidate_name": "Aarav Sharma"
+  },
+  "events": [
+    {
+      "timestamp_ms": 1000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 0,
+      "payload": {
+        "display_name": "Sarah Chen (Interviewer)",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 2000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 2,
+      "payload": {
+        "display_name": "John HR (Observer)",
+        "camera_on": false
+      }
+    },
+    {
+      "timestamp_ms": 3000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 3,
+      "payload": {
+        "display_name": "Fireflies.ai Notetaker",
+        "camera_on": false
+      }
+    },
+    {
+      "timestamp_ms": 5000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 1,
+      "payload": {
+        "display_name": "Aarav Sharma",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 10000,
+      "type": "SPEAKING_START",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 20000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 21000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 0,
+      "payload": {
+        "speaker_name": "Sarah Chen",
+        "text": "Hi Aarav. I see we have John and Fireflies note taker in the meeting as silent observers today. Let's get started. Tell me about your skills."
+      }
+    },
+    {
+      "timestamp_ms": 25000,
+      "type": "SPEAKING_START",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 80000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 81000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 1,
+      "payload": {
+        "speaker_name": "Aarav Sharma",
+        "text": "Hello Sarah, nice to meet you. I specialize in real-time systems development. I am highly proficient in Python, async frameworks, and event broker configurations."
+      }
+    }
+  ]
+}

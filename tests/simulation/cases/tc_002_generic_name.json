@@ -1,0 +1,104 @@
+{
+  "test_case_id": "tc_002_generic_name",
+  "description": "Candidate joins as 'MacBook Pro'. Metadata fails. Speaks 65%, answers questions, camera on. Should be identified via behavioral/semantic.",
+  "expected_candidate_participant_idx": 1,
+  "interview_metadata": {
+    "expected_candidate_name": "Aarav Sharma"
+  },
+  "events": [
+    {
+      "timestamp_ms": 1000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 0,
+      "payload": {
+        "display_name": "Sarah Chen (Interviewer)",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 5000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 1,
+      "payload": {
+        "display_name": "MacBook Pro",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 10000,
+      "type": "SPEAKING_START",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 20000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 21000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 0,
+      "payload": {
+        "speaker_name": "Sarah Chen (Interviewer)",
+        "text": "Hello, welcome. Please introduce yourself and your background."
+      }
+    },
+    {
+      "timestamp_ms": 22000,
+      "type": "SPEAKING_START",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 120000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 121000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 1,
+      "payload": {
+        "speaker_name": "MacBook Pro",
+        "text": "Hi, yes. My name is Aarav. In my previous role at TechCorp, I spent about three years building distributed databases. I led a team of three backend developers."
+      }
+    },
+    {
+      "timestamp_ms": 125000,
+      "type": "SPEAKING_START",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 135000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 136000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 0,
+      "payload": {
+        "speaker_name": "Sarah Chen (Interviewer)",
+        "text": "That sounds great. What challenges did you face there?"
+      }
+    },
+    {
+      "timestamp_ms": 138000,
+      "type": "SPEAKING_START",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 250000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 251000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 1,
+      "payload": {
+        "speaker_name": "MacBook Pro",
+        "text": "We faced massive read replication lag when our database scaled. To solve this, I designed a multi-level cache architecture using Redis. It reduced the database hit rate by 45 percent."
+      }
+    }
+  ]
+}

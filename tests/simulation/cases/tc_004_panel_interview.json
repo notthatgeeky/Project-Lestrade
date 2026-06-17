@@ -1,0 +1,113 @@
+{
+  "test_case_id": "tc_004_panel_interview",
+  "description": "Panel interview with two interviewers and one candidate. Candidate speaks ~50% of time, interviewers ask questions.",
+  "expected_candidate_participant_idx": 2,
+  "interview_metadata": {
+    "expected_candidate_name": "Aarav Sharma"
+  },
+  "events": [
+    {
+      "timestamp_ms": 1000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 0,
+      "payload": {
+        "display_name": "Sarah Chen (Interviewer)",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 2000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 1,
+      "payload": {
+        "display_name": "David Kim (Interviewer)",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 5000,
+      "type": "PARTICIPANT_JOIN",
+      "participant_idx": 2,
+      "payload": {
+        "display_name": "Aarav Sharma",
+        "camera_on": true
+      }
+    },
+    {
+      "timestamp_ms": 10000,
+      "type": "SPEAKING_START",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 25000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 0
+    },
+    {
+      "timestamp_ms": 26000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 0,
+      "payload": {
+        "speaker_name": "Sarah Chen",
+        "text": "Hi Aarav, thanks for coming. I have David here with me today. Let's start with your background."
+      }
+    },
+    {
+      "timestamp_ms": 30000,
+      "type": "SPEAKING_START",
+      "participant_idx": 2
+    },
+    {
+      "timestamp_ms": 90000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 2
+    },
+    {
+      "timestamp_ms": 91000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 2,
+      "payload": {
+        "speaker_name": "Aarav Sharma",
+        "text": "Sure, thanks Sarah. I started my career working with database internals, focusing on index optimizations. Over the last three years, I moved towards API gateways and general systems scaling."
+      }
+    },
+    {
+      "timestamp_ms": 95000,
+      "type": "SPEAKING_START",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 115000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 1
+    },
+    {
+      "timestamp_ms": 116000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 1,
+      "payload": {
+        "speaker_name": "David Kim",
+        "text": "Thanks Aarav. Quick follow up on API gateways — which gateway technology did you deploy and what was your caching strategy?"
+      }
+    },
+    {
+      "timestamp_ms": 120000,
+      "type": "SPEAKING_START",
+      "participant_idx": 2
+    },
+    {
+      "timestamp_ms": 180000,
+      "type": "SPEAKING_STOP",
+      "participant_idx": 2
+    },
+    {
+      "timestamp_ms": 181000,
+      "type": "TRANSCRIPT_CHUNK",
+      "participant_idx": 2,
+      "payload": {
+        "speaker_name": "Aarav Sharma",
+        "text": "We deployed Kong Gateway. Our caching strategy was localized. We used Redis for shared session lookup and localized memory caches for heavy configuration metadata to minimize external queries."
+      }
+    }
+  ]
+}
