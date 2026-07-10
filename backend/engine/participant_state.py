@@ -149,5 +149,3 @@ class ParticipantState:
             "is_identified_candidate": bool(self.candidate_probability >= 0.65),
         }
 
-
-# chore
