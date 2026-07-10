@@ -1,9 +1,6 @@
 """
-Sherlock Backend — Session Manager
-
-Manages in-memory state for active interview sessions.
-Routes events from the extension to participant states and the candidate engine.
-Broadcasts updates to connected dashboard WebSocket clients.
+session manager
+keeps track of participant states and routes websocket events
 """
 from __future__ import annotations
 from typing import Dict, Optional, List, Any
