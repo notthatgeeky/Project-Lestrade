@@ -82,8 +82,10 @@ class ParticipantState:
     def start_speaking(self, timestamp_ms: int):
         """Record the start of a speaking turn."""
         if self.current_utterance_start_ms is None:
+            # TODO: Add a minimum silence threshold to prevent micro-interruptions from counting as turns
             self.current_utterance_start_ms = timestamp_ms
             self.speaking_turn_count += 1
+            # print(f"DEBUG: {self.current_display_name} started speaking at {timestamp_ms}")
 
     def stop_speaking(self, timestamp_ms: int):
         """Record the end of a speaking turn."""
@@ -147,3 +149,5 @@ class ParticipantState:
             "is_identified_candidate": bool(self.candidate_probability >= 0.65),
         }
 
+
+# style
